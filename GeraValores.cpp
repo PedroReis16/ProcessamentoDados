@@ -13,3 +13,7 @@ std::vector<int> GeraValores::geraAleatorios(int quantidade) {
 
 	return saida;
 }
+
+std::vector<int> GeraValores::geraVetor(std::vector<int> aleatorios) {
+
+}
