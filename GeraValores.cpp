@@ -14,26 +14,23 @@ std::vector<int> GeraValores::geraAleatorios(int quantidade) {
 	return saida;
 }
 
-std::vector<int> GeraValores::geraVetor(std::vector<int> aleatorios) {
-	std::vector<int>saida;
+std::vector<int> GeraValores::geraVetor(int quantidade) {
 
-	for (int i : aleatorios) {
-		saida.push_back(i);
-	}
+	std::vector<int>saida = geraAleatorios(quantidade);
 	return saida;
 }
-LinkedList GeraValores::geraListaEncadeada(std::vector<int> aleatorios) {
-	LinkedList saida;
+LinkedList GeraValores::geraListaEncadeada(int quantidade) {
 	
-	for (int i : aleatorios) {
+	LinkedList saida;
+	for (int i : geraAleatorios(quantidade)) {
 		saida.add(i);
 	}
 	return saida;
 }
-DoublyLinkedList GeraValores::geraListaDuplamenteEncadeada(std::vector<int> aleatorios) {
-	DoublyLinkedList saida;
+DoublyLinkedList GeraValores::geraListaDuplamenteEncadeada(int quantidade) {
 
-	for (int i : aleatorios) {
+	DoublyLinkedList saida;
+	for (int i : geraAleatorios(quantidade)) {
 		saida.add(i);
 	}
 	return saida;

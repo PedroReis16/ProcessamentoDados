@@ -132,12 +132,14 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ProcessandoDados.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="doublyLinkedList.hpp" />
     <ClInclude Include="geraValores.hpp" />
     <ClInclude Include="linkedList.hpp" />
     <ClInclude Include="node.hpp" />
+    <ClInclude Include="processandoDados.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

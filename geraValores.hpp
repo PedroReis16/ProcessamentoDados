@@ -5,10 +5,11 @@
 
 class GeraValores
 {
-public:
+private:
 	static std::vector<int> geraAleatorios(int quantidade);
-	std::vector<int> geraVetor(std::vector<int> aleatorios);
-	LinkedList geraListaEncadeada(std::vector<int> aleatorios);
-	DoublyLinkedList geraListaDuplamenteEncadeada(std::vector<int> aleatorios);
+public:
+	static std::vector<int> geraVetor(int quantidade);
+	static LinkedList geraListaEncadeada(int quantidade);
+	static DoublyLinkedList geraListaDuplamenteEncadeada(int quantidade);
 };
 

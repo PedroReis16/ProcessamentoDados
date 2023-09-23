@@ -16,6 +16,9 @@
     <Filter Include="Arquivos de Origem\Modelos">
       <UniqueIdentifier>{310caf57-b061-4c83-984d-a9ff88518029}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arquivos de Origem\Serviços">
+      <UniqueIdentifier>{d40973b6-abc5-4375-acf3-7e840fa70e59}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="GeraValores.cpp">
       <Filter>Arquivos de Origem\Modelos</Filter>
     </ClCompile>
+    <ClCompile Include="ProcessandoDados.cpp">
+      <Filter>Arquivos de Origem\Serviços</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="geraValores.hpp">
@@ -45,6 +51,9 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="linkedList.hpp">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="processandoDados.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>
