@@ -1,9 +1,11 @@
+#pragma once
 #include "Node.cpp"
 
 class LinkedList
 {
-public:
+private:
 	Node* head;
+public:
 	
 	LinkedList() {
 		head = nullptr;
