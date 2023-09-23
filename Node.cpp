@@ -1,11 +1,11 @@
 class Node {
 public:
-	int number;
+	int value;
 	Node* next;
 	Node* prev;
 
-	Node(int number) {
-		this->number = number;
+	Node(int value) {
+		this->value = value;
 		this->next = nullptr;
 		this->prev = nullptr;
 	}

@@ -25,13 +25,12 @@ public:
 			tail = newNode;
 		}
 	}
-
 	void remove(int value) {
 		Node* current = head;
 
 		while (current)
 		{
-			if (current->number == value) {
+			if (current->value == value) {
 				if (current == head) {
 					head = current->next;
 
@@ -57,5 +56,43 @@ public:
 		}
 		return;
 	}
+	int indexOf(int value) {
+		Node* current = head;
+		int index = 0;
+
+		while (current) {
+			if (current->value == value) {
+				return index;
+			}
+			current = current->next;
+			index++;
+		}
+		return -1;
+	}
+	int getValueAtPosition(int value) {
+		Node* current = head;
+		int currentPosition = 0;
+
+		while (current)
+		{
+			if (currentPosition == value) {
+				return current->value;
+			}
+			current = current->next;
+			currentPosition++;
+		}
+		return -1;
+	}
+	int sizeOf() {
+		int size = 0;
+		Node* current = head;
+		
+		while (current)
+		{
+			size++;
+			current = current->next;
+		}
+	}
+
 };
 

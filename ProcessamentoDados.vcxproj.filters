@@ -13,22 +13,25 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Arquivos de Origem\Modelos">
+      <UniqueIdentifier>{310caf57-b061-4c83-984d-a9ff88518029}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProcessamentoDados.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="GeraValores.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>Arquivos de Origem</Filter>
+    <ClCompile Include="DoublyLinkedList.cpp">
+      <Filter>Arquivos de Origem\Modelos</Filter>
     </ClCompile>
     <ClCompile Include="LinkedList.cpp">
-      <Filter>Arquivos de Origem</Filter>
+      <Filter>Arquivos de Origem\Modelos</Filter>
     </ClCompile>
-    <ClCompile Include="DoublyLinkedList.cpp">
-      <Filter>Arquivos de Origem</Filter>
+    <ClCompile Include="Node.cpp">
+      <Filter>Arquivos de Origem\Modelos</Filter>
+    </ClCompile>
+    <ClCompile Include="GeraValores.cpp">
+      <Filter>Arquivos de Origem\Modelos</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
