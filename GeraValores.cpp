@@ -1,4 +1,4 @@
-#include "IGeraValores.hpp"
+#include "geraValores.hpp"
 
 std::vector<int> GeraValores::geraAleatorios(int quantidade) {
 	std::vector<int> saida;

@@ -1,12 +1,8 @@
-class Node {
-public:
-	int value;
-	Node* next;
-	Node* prev;
+#include "node.hpp"
 
-	Node(int value) {
-		this->value = value;
-		this->next = nullptr;
-		this->prev = nullptr;
-	}
-};
+Node::Node(int value) {
+	this->value = value;
+	this->next = nullptr;
+	this->prev = nullptr;
+}
+

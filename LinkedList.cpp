@@ -1,80 +1,87 @@
-#pragma once
-#include "Node.cpp"
+#include "linkedList.hpp"
 
-class LinkedList
-{
-private:
-	Node* head;
-public:
-	
-	LinkedList() {
-		head = nullptr;
-	}
+LinkedList::LinkedList() {
+	head = nullptr;
+}
 
-	void add(int value) {
-		Node* newNode = new Node(value);
-		newNode->next = head;
+void LinkedList::add(int value) {
+	Node* newNode = new Node(value);
+	if (head == nullptr) {
 		head = newNode;
 	}
-	void remove(int value) {
-		if (head == nullptr) {
-			return;
-		}
-
-		if (head->value == value) {
-			Node* temp = head;
-			head = head->next;
-			delete temp;
-			return;
-		}
-
+	else {
 		Node* current = head;
-		while (current->next != nullptr && current->next->value != value)
-		{
+		while (current->next != nullptr) {
 			current = current->next;
 		}
-		if (current->next != nullptr) {
-			Node* temp = current->next;
-			current->next = current->next->next;
-			delete temp;
-		}
+		current->next = newNode;
 	}
-	int indexOf(int value) {
-		Node* current = head;
-		int index = 0;
+}
+void LinkedList::addRange(std::vector<int> values) {
+	for (int i : values) {
+		add(i);
+	}
+}
+void LinkedList::remove(int value) {
+	if (head == nullptr) {
+		return;
+	}
 
-		while (current) {
-			if (current->value == value) {
-				return index;
-			}
-			current = current->next;
-			index++;
-		}
-		return -1;
+	if (head->value == value) {
+		Node* temp = head;
+		head = head->next;
+		delete temp;
+		return;
 	}
-	int getValueAtPosition(int value) {
-		Node* current = head;
-		int currentPosition = 0;
 
-		while (current)
-		{
-			if (currentPosition == value) {
-				return current->value;
-			}
-			current = current->next;
-			currentPosition++;
-		}
-		return -1;
+	Node* current = head;
+	while (current->next != nullptr && current->next->value != value)
+	{
+		current = current->next;
 	}
-	int sizeOf() {
-		int size = 0;
-		Node* current = head;
+	if (current->next != nullptr) {
+		Node* temp = current->next;
+		current->next = current->next->next;
+		delete temp;
+	}
+}
+int LinkedList::indexOf(int value) {
+	Node* current = head;
+	int index = 0;
 
-		while (current)
-		{
-			size++;
-			current = current->next;
+	while (current) {
+		if (current->value == value) {
+			return index;
 		}
+		current = current->next;
+		index++;
 	}
-};
+	return -1;
+}
+int LinkedList::getValueAtPosition(int value) {
+	Node* current = head;
+	int currentPosition = 0;
+
+	while (current)
+	{
+		if (currentPosition == value) {
+			return current->value;
+		}
+		current = current->next;
+		currentPosition++;
+	}
+	return -1;
+}
+int LinkedList::size() {
+	int size = 0;
+	Node* current = head;
+
+	while (current)
+	{
+		size++;
+		current = current->next;
+	}
+	return size;
+}
+
 
