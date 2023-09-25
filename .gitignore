@@ -262,3 +262,5 @@ __pycache__/
 *.pyc
 *.zip
 *.7z
+
+x64/Debug/
