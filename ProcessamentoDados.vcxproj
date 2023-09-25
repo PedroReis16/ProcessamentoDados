@@ -133,6 +133,7 @@
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ProcessandoDados.cpp" />
+    <ClCompile Include="ThreadPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="doublyLinkedList.hpp" />
@@ -140,6 +141,7 @@
     <ClInclude Include="linkedList.hpp" />
     <ClInclude Include="node.hpp" />
     <ClInclude Include="processandoDados.hpp" />
+    <ClInclude Include="threadPool.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
