@@ -1,44 +1,48 @@
 #include <iostream>
+#include <string>
+#include <windows.h>
+#include <cstring>
 #include "geraValores.hpp"
 #include "processandoDados.hpp"
-#include <string>
 
 std::string tipoDado = "";
 
-void coletandoDados() {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<>intDistribution(1, 3);
-
-	
-
-	switch (intDistribution(gen))
-	{
-	case 1:
-		tipoDado = "Vetor";
-
-		ProcessandoDados::processaDevagar(GeraValores::geraVetor(1000), GeraValores::geraVetor(3000), GeraValores::geraVetor(5000), GeraValores::geraVetor(10000));
-
-		break;
-	case 2:
-		tipoDado = "Lista encadeada";
-
-		ProcessandoDados::processaDevagar(GeraValores::geraListaEncadeada(1000), GeraValores::geraListaEncadeada(3000), GeraValores::geraListaEncadeada(5000), GeraValores::geraListaEncadeada(10000));
-
-		break;
-	case 3:
-		tipoDado = "Lista duplamente encadeada";
-
-		ProcessandoDados::processaDevagar(GeraValores::geraListaDuplamenteEncadeada(1000), GeraValores::geraListaDuplamenteEncadeada(3000), GeraValores::geraListaDuplamenteEncadeada(5000), GeraValores::geraListaDuplamenteEncadeada(10000));
-		break;
-	}
-}
 
 int main()
 {
 	std::cout << "Por favor, aguarde um instante que as informacoes ja irao ser processadas..." << std::endl;
-	coletandoDados();
-	std::cout << "A informacao processado(a) se trata de um(a): " << tipoDado << std::endl;
+
+	ProcessandoDados process;
+	std::vector<int> random1 = GeraValores::geraVetor(100);
+	std::vector<int> random2 = GeraValores::geraVetor(100);
+	std::vector<int> random3 = GeraValores::geraVetor(100);
+	std::vector<int> random4 = GeraValores::geraVetor(100);
+
+	process.juntandoDados(random1, random2, random3, random4);
+	std::this_thread::sleep_for(std::chrono::seconds(2));
+
+	std::string confirm;
+
+	std::cout << "Todos os dados foram devidamente coletados, continuar? (s/n)" << std::endl;
+	std::cin >> confirm;
+
+	if (confirm == "s" || confirm == "S") {
+		process.processandoDados();
+	}
+	else {
+		exit;
+	}
+
+	std::cout << std::endl;
+	std::cout << "Esse foi o processamento de dados de forma sincrona, deseja realizar o mesmo processamento de forma paralela? (s/n)" << std::endl;
+	std::cin >> confirm;
+
+	if (confirm == "s" || confirm == "S") {
+		process.processandoDadosParalelo();
+	}
+	else {
+		exit;
+	}
 
 	return 0;
 }
