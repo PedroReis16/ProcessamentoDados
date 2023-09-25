@@ -1,6 +1,0 @@
-﻿  Main.cpp
-D:\Documentos\Programação\C++\ProcessamentoDados\Main.cpp(33,3): warning C4551: function call missing argument list
-D:\Documentos\Programação\C++\ProcessamentoDados\Main.cpp(44,3): warning C4551: function call missing argument list
-  ProcessandoDados.cpp
-  Generating Code...
-  ProcessamentoDados.vcxproj -> D:\Documentos\Programação\C++\ProcessamentoDados\x64\Debug\ProcessamentoDados.exe

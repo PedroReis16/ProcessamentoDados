@@ -264,3 +264,16 @@ __pycache__/
 *.7z
 
 x64/Debug/
+/x64/Debug/ProcessamentoDados.exe
+/x64/Debug/ProcessamentoDados.ilk
+/x64/Debug/ProcessamentoDados.log
+/x64/Debug/ProcessamentoDados.pdb
+/x64/Debug/vc143.idb
+/x64/Debug/vc143.pdb
+/x64/Debug/Processa.2421f84b.tlog/CL.command.1.tlog
+/x64/Debug/Processa.2421f84b.tlog/Cl.items.tlog
+/x64/Debug/Processa.2421f84b.tlog/CL.read.1.tlog
+/x64/Debug/Processa.2421f84b.tlog/CL.write.1.tlog
+/x64/Debug/Processa.2421f84b.tlog/link.command.1.tlog
+/x64/Debug/Processa.2421f84b.tlog/link.read.1.tlog
+/x64/Debug/Processa.2421f84b.tlog/link.write.1.tlog
