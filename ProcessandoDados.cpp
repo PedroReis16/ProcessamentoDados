@@ -7,141 +7,82 @@ long long ProcessandoDados::randomTimer() {
 
 	return (long long)intDistribution(gen);
 }
-void ProcessandoDados::processaDevagar(std::vector<int>conjunto1, std::vector<int>conjunto2, std::vector<int>conjunto3, std::vector<int>conjunto4) {
-
-	std::this_thread::sleep_for(std::chrono::seconds(2));
-	std::cout << "Primeiro conjunto" << std::endl;
+void ProcessandoDados::juntandoDados(std::vector<int>conjunto1, std::vector<int>conjunto2, std::vector<int>conjunto3, std::vector<int>conjunto4) {
 	for (int i : conjunto1)
 	{
-		std::cout << "Valor atual: " << i << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+		vector.push_back(i);
+		linkedList.add(i);
+		doublyLinkedList.add(i);
 	}
-	std::cout << "Segundo conjunto" << std::endl;
 	for (int i : conjunto2)
 	{
-		std::cout << "Valor atual: " << i << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+		vector.push_back(i);
+		doublyLinkedList.add(i);
+		linkedList.add(i);
 	}
-	std::cout << "Terceiro conjunto" << std::endl;
 	for (int i : conjunto3)
 	{
-		std::cout << "Valor atual: " << i << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+		vector.push_back(i);
+		doublyLinkedList.add(i);
+		linkedList.add(i);
 	}
-	std::cout << "Quarto conjunto" << std::endl;
 	for (int i : conjunto4)
 	{
-		std::cout << "Valor atual: " << i << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+		vector.push_back(i);
+		doublyLinkedList.add(i);
+		linkedList.add(i);
 	}
 
 }
-void ProcessandoDados::processaDevagar(LinkedList conjunto1, LinkedList conjunto2, LinkedList conjunto3, LinkedList conjunto4) {
 
-	std::this_thread::sleep_for(std::chrono::seconds(2));
-	std::vector<int> teste1;
-	std::vector<int> teste2;
-	std::vector<int> teste3;
-	std::vector<int> teste4;
-	
-	std::cout << "Primeiro conjunto" << std::endl;
-	for (int i = 0; i < conjunto1.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto1.getValueAtPosition(i) << " " << std::endl;
+void ProcessandoDados::processandoDados() {
+	lendoVetor();
+	lendoListaSimples();
+	lendoListaEncadeada();
+}
+void ProcessandoDados::processandoDadosParalelo() {
+	ThreadPool pool(2);
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
 
-		std::cout << "Pagamento concluido" << std::endl;
-
-	}
-	std::cout << "Segundo conjunto" << std::endl;
-	for (int i = 0; i < conjunto2.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto2.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;
-
-	}
-	std::cout << "terceiro conjunto" << std::endl;
-	for (int i = 0; i < conjunto3.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto3.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;
-
-	}
-	std::cout << "Quarto conjunto" << std::endl;
-	for (int i = 0; i < conjunto4.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto4.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;
-
+	pool.enqueueTask([=] {lendoVetor(); });
+	pool.enqueueTask([=] {lendoListaSimples(); });
+	pool.enqueueTask([=] {lendoListaEncadeada(); });
+}
+void ProcessandoDados::lendoVetor() {
+	for (int i : vector) {
+		lendoDados(i, "V");
 	}
 }
-void ProcessandoDados::processaDevagar(DoublyLinkedList conjunto1, DoublyLinkedList conjunto2, DoublyLinkedList conjunto3, DoublyLinkedList conjunto4) {
-
-	std::this_thread::sleep_for(std::chrono::seconds(2));
-	std::cout << "Primeiro conjunto" << std::endl;
-	for (int i = 0; i < conjunto1.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto1.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;
-
+void ProcessandoDados::lendoListaSimples() {
+	for (int i = 0; i < linkedList.size(); i++) {
+		lendoDados(linkedList.getValueAtPosition(i), "S");
 	}
-	std::cout << "Segundo conjunto" << std::endl;
-	for (int i = 0; i < conjunto2.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto2.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+}
+void ProcessandoDados::lendoListaEncadeada() {
+	for (int i = 0; i < doublyLinkedList.size(); i++) {
+		lendoDados(doublyLinkedList.getValueAtPosition(i), "D");
 	}
-	std::cout << "terceiro conjunto" << std::endl;
-	for (int i = 0; i < conjunto3.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto3.getValueAtPosition(i) << " " << std::endl;
+}
+void ProcessandoDados::lendoDados(int value, std::string type) {
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
+	std::string saida;
+	std::string saida2;
 
-		std::cout << "Pagamento concluido" << std::endl;;
-
+	if (type == "V") {
+		saida = "O pagamento de ";
+		saida2 = " foi processado com sucesso";
 	}
-	std::cout << "Quarto conjunto" << std::endl;
-	for (int i = 0; i < conjunto4.size(); i++)
-	{
-		std::cout << "Valor atual: " << conjunto4.getValueAtPosition(i) << " " << std::endl;
-
-		std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-
-		std::cout << "Pagamento concluido" << std::endl;;
-
+	else if (type == "S") {
+		saida = "O valor de ";
+		saida2 = " foi processado com sucesso";
 	}
+	else {
+		saida = "A cobranca no valor de ";
+		saida2 = " foi processada com sucesso";
+	}
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(50));
+	std::cout << "Valor atual: " << value << " " << std::endl;
+	std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
+	std::cout << saida << value << saida2 << std::endl;;
 }
