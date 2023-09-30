@@ -7,7 +7,7 @@
 #include "LinkedList.hpp"
 #include "doublyLinkedList.hpp"
 #include "threadPool.hpp"
-#include "pilha.hpp"
+//#include "pilha.hpp"
 
 class ProcessandoDados
 {
@@ -18,18 +18,18 @@ private:
 	void lendoListaEncadeada();
 	void lendoVetor();
 	void lendoVetor2();
-	void processaVetor();
-	void lendoPilha();
+	/*void processaVetor();
+	void lendoPilha();*/
 	std::vector<int> vector;
 	std::vector<int> vector2;
 	LinkedList linkedList;
 	DoublyLinkedList doublyLinkedList;
-	Pilha pilha;
+	/*Pilha pilha;*/
 
 public:
 	void processandoDados();
 	void processandoDadosParalelo();
-	void processandoDadosParaleloPilha();
+	//void processandoDadosParaleloPilha();
 	void juntandoDados(std::vector<int>conjunto1, std::vector<int>conjunto2, std::vector<int>conjunto3, std::vector<int>conjunto4);
 };
 

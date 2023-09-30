@@ -90,42 +90,42 @@ void ProcessandoDados::lendoDados(int value, std::string type) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
 	std::cout << saida << value << saida2 << std::endl;;
 }
-void ProcessandoDados::processaVetor()
-{
-	int maiorValor = vector[0];
-	for (int valor : vector) {
-		if (valor > maiorValor) {
-			maiorValor = valor;
-		}
-	}
-	for (int valor : vector) {
-		if (valor <= (2 * maiorValor / 3)) {
-			vector2.push_back(valor);
-		}
-		else {
-			pilha.empilhar(valor);
-		}
-	}
-	std::cout << "Maior Valor: " << maiorValor << " " << std::endl;
-}
-void ProcessandoDados::processandoDadosParaleloPilha() {
-
-	processaVetor();
-
-	
-	ThreadPool pool(2);
-
-
-	pool.enqueueTask([=] {lendoVetor2(); });
-	pool.enqueueTask([=] {lendoPilha(); });
-}
+//void ProcessandoDados::processaVetor()
+//{
+//	int maiorValor = vector[0];
+//	for (int valor : vector) {
+//		if (valor > maiorValor) {
+//			maiorValor = valor;
+//		}
+//	}
+//	for (int valor : vector) {
+//		if (valor <= (2 * maiorValor / 3)) {
+//			vector2.push_back(valor);
+//		}
+//		else {
+//			pilha.empilhar(valor);
+//		}
+//	}
+//	std::cout << "Maior Valor: " << maiorValor << " " << std::endl;
+//}
+//void ProcessandoDados::processandoDadosParaleloPilha() {
+//
+//	processaVetor();
+//
+//	
+//	ThreadPool pool(2);
+//
+//
+//	pool.enqueueTask([=] {lendoVetor2(); });
+//	pool.enqueueTask([=] {lendoPilha(); });
+//}
 void ProcessandoDados::lendoVetor2() {
 	for (int i : vector2) {
 		lendoDados(i, "V");
 	}
 }
-void ProcessandoDados::lendoPilha() {
-	for (int i = 0; i < pilha.size(); i++) {
-		lendoDados(pilha.acessarPosicao(i), "P");
-	}
-}
+//void ProcessandoDados::lendoPilha() {
+//	for (int i = 0; i < pilha.size(); i++) {
+//		lendoDados(pilha.acessarPosicao(i), "P");
+//	}
+//}
