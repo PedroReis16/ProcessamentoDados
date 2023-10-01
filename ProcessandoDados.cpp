@@ -13,119 +13,91 @@ void ProcessandoDados::juntandoDados(std::vector<int>conjunto1, std::vector<int>
 		vector.push_back(i);
 		linkedList.add(i);
 		doublyLinkedList.add(i);
+		generalList.push_back(i);
+		generalLinkedList.add(i);
 	}
 	for (int i : conjunto2)
 	{
 		vector.push_back(i);
 		doublyLinkedList.add(i);
 		linkedList.add(i);
+		generalList.push_back(i);
+		generalLinkedList.add(i);
 	}
 	for (int i : conjunto3)
 	{
 		vector.push_back(i);
 		doublyLinkedList.add(i);
 		linkedList.add(i);
+		generalList.push_back(i);
+		generalLinkedList.add(i);
 	}
 	for (int i : conjunto4)
 	{
 		vector.push_back(i);
 		doublyLinkedList.add(i);
 		linkedList.add(i);
+		generalList.push_back(i);
+		generalLinkedList.add(i);
 	}
 
+	int size = generalList.size() - 1;
+	mergeSort(generalList, 0, size);
+
+	for (int i : generalList) {
+		std::cout << i << " ";
+	}
 }
 
-void ProcessandoDados::processandoDados() {
-	lendoVetor();
-	lendoListaSimples();
-	lendoListaEncadeada();
-}
-void ProcessandoDados::processandoDadosParalelo() {
-	ThreadPool pool(2);
+void ProcessandoDados::mergeSort(std::vector<int>& vector, int left, int right) {
+	if (left < right) {
+		int middle = left + (right - left) / 2;
 
+		mergeSort(vector, left, middle);
+		mergeSort(vector, middle + 1, right);
+		merge(vector, left, middle, right);
+	}
+}
 
-	pool.enqueueTask([=] {lendoVetor(); });
-	pool.enqueueTask([=] {lendoListaSimples(); });
-	pool.enqueueTask([=] {lendoListaEncadeada(); });
-}
-void ProcessandoDados::lendoVetor() {
-	for (int i : vector) {
-		lendoDados(i, "V");
-	}
-}
-void ProcessandoDados::lendoListaSimples() {
-	for (int i = 0; i < linkedList.size(); i++) {
-		lendoDados(linkedList.getValueAtPosition(i), "S");
-	}
-}
-void ProcessandoDados::lendoListaEncadeada() {
-	for (int i = 0; i < doublyLinkedList.size(); i++) {
-		lendoDados(doublyLinkedList.getValueAtPosition(i), "D");
-	}
-}
-void ProcessandoDados::lendoDados(int value, std::string type) {
+void ProcessandoDados::merge(std::vector<int>& vector, int left, int middle, int right) {
+	int n1 = middle - left + 1;
+	int n2 = right - middle;
 
-	std::string saida;
-	std::string saida2;
+	std::vector<int> leftSubarray(n1);
+	std::vector<int> rightSubarray(n2);
 
-	if (type == "V") {
-		saida = "O pagamento de ";
-		saida2 = " foi processado com sucesso";
+	for (int i = 0; i < n1; i++) {
+		leftSubarray[i] = vector[left + i];
 	}
-	else if (type == "S") {
-		saida = "O valor de ";
-		saida2 = " foi processado com sucesso";
-	}
-	else if (type == "D") {
-		saida = "A cobranca no valor de ";
-		saida2 = " foi processada com sucesso";
-	}
-	else {
-		saida = "A quantia de ";
-		saida2 = " foi processada com sucesso";
+	for (int i = 0; i < n2; i++) {
+		rightSubarray[i] = vector[middle + 1 + i];
 	}
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(50));
-	std::cout << "Valor atual: " << value << " " << std::endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(randomTimer()));
-	std::cout << saida << value << saida2 << std::endl;;
-}
-void ProcessandoDados::processaVetor()
-{
-	int maiorValor = vector[0];
-	for (int valor : vector) {
-		if (valor > maiorValor) {
-			maiorValor = valor;
-		}
-	}
-	for (int valor : vector) {
-		if (valor <= (2 * maiorValor / 3)) {
-			vector2.push_back(valor);
+	int i = 0;
+	int j = 0;
+	int k = left;
+	while (i < n1 && j < n2) {
+		if (leftSubarray[i] <= rightSubarray[j]) {
+			vector[k] = leftSubarray[i];
+			i++;
 		}
 		else {
-			pilha.empilhar(valor);
+			vector[k] = rightSubarray[j];
+			j++;
 		}
+		k++;
 	}
-	std::cout << "Maior Valor: " << maiorValor << " " << std::endl;
-}
-void ProcessandoDados::processandoDadosParaleloPilha() {
 
-	processaVetor();
+	while (i < n1) {
+		vector[k] = leftSubarray[i];
+		i++;
+		k++;
+	}
 
-	
-	ThreadPool pool(2);
-
-
-	pool.enqueueTask([=] {lendoVetor2(); });
-	pool.enqueueTask([=] {lendoPilha(); });
-}
-void ProcessandoDados::lendoVetor2() {
-	for (int i : vector2) {
-		lendoDados(i, "V");
+	while (j < n2) {
+		vector[k] = rightSubarray[j];
+		j++;
+		k++;
 	}
 }
-void ProcessandoDados::lendoPilha() {
-	for (int i = 0; i < pilha.size(); i++) {
-		lendoDados(pilha.acessarPosicao(i), "P");
-	}
-}
+

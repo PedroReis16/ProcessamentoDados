@@ -20,11 +20,18 @@ private:
 	void lendoVetor2();
 	void processaVetor();
 	void lendoPilha();
+	void processamento();
+	void mergeSort(std::vector<int>& vector, int left, int right);
+	void merge(std::vector<int>& vector, int left, int middle, int right);
+	int biggerValue;
 	std::vector<int> vector;
 	std::vector<int> vector2;
+	std::vector<int> generalList;
 	LinkedList linkedList;
+	LinkedList generalLinkedList;
 	DoublyLinkedList doublyLinkedList;
 	Pilha pilha;
+
 
 public:
 	void processandoDados();
