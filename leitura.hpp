@@ -7,9 +7,9 @@
 class Leitura
 {
 public:
-	void lendoVetor(int value,int pause);
-	void lendoListaSimples(int value, int pause);
-	void lendoListaDupla(int value, int pause);
-	void lendoPilha(int value, int pause);
+	static void lendoVetor(int value,int pause);
+	static void lendoListaSimples(int value, int pause);
+	static void lendoListaDupla(int value, int pause);
+	static void lendoPilha(int value, int pause);
 };
 

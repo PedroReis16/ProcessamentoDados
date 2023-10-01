@@ -1,11 +1,11 @@
 #include "processandoDados.hpp"
 
-long long ProcessandoDados::randomTimer() {
+int ProcessandoDados::randomTimer() {
 	std::random_device rd;
 	std::mt19937 gen(rd());
 	std::uniform_int_distribution<>intDistribution(0, 10);
 
-	return (long long)intDistribution(gen);
+	return intDistribution(gen);
 }
 void ProcessandoDados::juntandoDados(std::vector<int>conjunto1, std::vector<int>conjunto2, std::vector<int>conjunto3, std::vector<int>conjunto4) {
 	for (int i : conjunto1)
@@ -44,7 +44,7 @@ void ProcessandoDados::juntandoDados(std::vector<int>conjunto1, std::vector<int>
 	mergeSort(generalList, 0, generalList.size() - 1);
 	biggestValue = generalList[generalList.size() - 1];
 }
-
+#pragma region Ordenação da lista
 void ProcessandoDados::mergeSort(std::vector<int>& vector, int left, int right) {
 	if (left < right) {
 		int middle = left + (right - left) / 2;
@@ -54,7 +54,6 @@ void ProcessandoDados::mergeSort(std::vector<int>& vector, int left, int right) 
 		merge(vector, left, middle, right);
 	}
 }
-
 void ProcessandoDados::merge(std::vector<int>& vector, int left, int middle, int right) {
 	int n1 = middle - left + 1;
 	int n2 = right - middle;
@@ -96,4 +95,12 @@ void ProcessandoDados::merge(std::vector<int>& vector, int left, int middle, int
 		k++;
 	}
 }
+#pragma endregion
+
+void ProcessandoDados::leituraNormal() {
+	for (int i : generalList) {
+		Leitura::lendoVetor(i,randomTimer());
+	}
+}
+
 

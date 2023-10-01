@@ -20,7 +20,7 @@ int main()
 	std::vector<int> random4 = GeraValores::geraVetor(10);
 
 	process.juntandoDados(random1, random2, random3, random4);
-	/*std::this_thread::sleep_for(std::chrono::seconds(2));
+	std::this_thread::sleep_for(std::chrono::seconds(2));
 
 	std::string confirm;
 
@@ -28,11 +28,11 @@ int main()
 	std::cin >> confirm;
 
 	if (confirm == "s" || confirm == "S") {
-		process.processandoDados();
+		process.leituraNormal();
 	}
 	else {
 		exit;
-	}*/
+	}
 
 	/*std::cout << std::endl;
 	std::cout << "Esse foi o processamento de dados de forma sincrona, deseja realizar o mesmo processamento de forma paralela? (s/n)" << std::endl;

@@ -9,7 +9,7 @@
 class ProcessandoDados
 {
 private:
-	static long long randomTimer();
+	int randomTimer();
 	/*void lendoDados(int value, std::string type);
 	void lendoListaSimples();
 	void lendoListaEncadeada();
@@ -18,8 +18,6 @@ private:
 	void lendoPilha();*/
 	/*void processaVetor();
 	void processamento();*/
-	void mergeSort(std::vector<int>& vector, int left, int right);
-	void merge(std::vector<int>& vector, int left, int middle, int right);
 	int biggestValue;
 	std::vector<int> vector;
 	std::vector<int> vector2;
@@ -28,9 +26,12 @@ private:
 	LinkedList generalLinkedList;
 	DoublyLinkedList doublyLinkedList;
 	Pilha pilha;
+	void mergeSort(std::vector<int>& vector, int left, int right);
+	void merge(std::vector<int>& vector, int left, int middle, int right);
 
 
 public:
+	void leituraNormal();
 	/*void processandoDados();
 	void processandoDadosParalelo();
 	void processandoDadosParaleloPilha();*/
