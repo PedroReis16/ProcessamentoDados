@@ -49,12 +49,12 @@ int main()
 	std::cout << "Deseja continuar? (s/n)" << std::endl;
 	std::cin >> confirm;
 
-	/*if (confirm == "s" || confirm == "S") {
+	if (confirm == "s" || confirm == "S") {
 		process.processandoDadosParaleloPilha();
 	}
 	else {
 		exit;
-	}*/
+	}
 
 	return 0;
 }

@@ -107,6 +107,7 @@ void ProcessandoDados::processaVetor()
 		}
 	}
 	std::cout << "Maior Valor: " << maiorValor << " " << std::endl;
+	std::cout << std::endl;
 }
 void ProcessandoDados::processandoDadosParaleloPilha() {
 
@@ -117,6 +118,7 @@ void ProcessandoDados::processandoDadosParaleloPilha() {
 
 
 	pool.enqueueTask([=] {lendoVetor2(); });
+	std::this_thread::sleep_for(std::chrono::milliseconds(7));
 	pool.enqueueTask([=] {lendoPilha(); });
 }
 void ProcessandoDados::lendoVetor2() {
