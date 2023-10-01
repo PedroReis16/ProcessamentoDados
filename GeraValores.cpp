@@ -23,19 +23,3 @@ std::vector<int> GeraValores::geraVetor(int quantidade) {
 	}
 	return saida;
 }
-LinkedList GeraValores::geraListaEncadeada(int quantidade) {
-	
-	LinkedList saida;
-	for (int i : geraAleatorios(quantidade)) {
-		saida.add(i);
-	}
-	return saida;
-}
-DoublyLinkedList GeraValores::geraListaDuplamenteEncadeada(int quantidade) {
-
-	DoublyLinkedList saida;
-	for (int i : geraAleatorios(quantidade)) {
-		saida.add(i);
-	}
-	return saida;
-}

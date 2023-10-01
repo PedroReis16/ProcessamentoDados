@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="DoublyLinkedList.cpp" />
     <ClCompile Include="GeraValores.cpp" />
+    <ClCompile Include="Leitura.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -139,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="doublyLinkedList.hpp" />
     <ClInclude Include="geraValores.hpp" />
+    <ClInclude Include="leitura.hpp" />
     <ClInclude Include="linkedList.hpp" />
     <ClInclude Include="node.hpp" />
     <ClInclude Include="pilha.hpp" />

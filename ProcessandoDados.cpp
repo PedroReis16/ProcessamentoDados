@@ -41,12 +41,8 @@ void ProcessandoDados::juntandoDados(std::vector<int>conjunto1, std::vector<int>
 		generalLinkedList.add(i);
 	}
 
-	int size = generalList.size() - 1;
-	mergeSort(generalList, 0, size);
-
-	for (int i : generalList) {
-		std::cout << i << " ";
-	}
+	mergeSort(generalList, 0, generalList.size() - 1);
+	biggestValue = generalList[generalList.size() - 1];
 }
 
 void ProcessandoDados::mergeSort(std::vector<int>& vector, int left, int right) {
