@@ -23,18 +23,18 @@ int Stack::top() {
     if (!empty()) {
         return elementos.back();
     }
-    else {
+    /*else {
         return -1;
-    }
+    }*/
 }
 int Stack::indexOf(int posicao) {
     std::lock_guard<std::mutex>lock(mutex);
     if (posicao >= 0 && posicao < elementos.size()) {
         return elementos[posicao];
     }
-    else {
+    /*else {
         return -1;
-    }
+    }*/
 }
 int Stack::size() {
     std::lock_guard<std::mutex>lock(mutex);

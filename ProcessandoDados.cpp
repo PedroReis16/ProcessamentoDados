@@ -119,12 +119,7 @@ void ProcessandoDados::processandoInfo() {
 
 	while (generalList.size() > 0 || toProcess.size() > 0)
 	{
-		if (!toProcess.empty()) {
-			stackMutex.lock();
-			stackProcess();
-			stackMutex.unlock();
-		}
-		else if (generalLinkedList.size() > 0) {
+		if (generalLinkedList.size() > 0) {
 
 			int value = generalLinkedList.getValueAtPosition(0);
 
@@ -136,7 +131,11 @@ void ProcessandoDados::processandoInfo() {
 				generalLinkedList.remove(value);
 			}
 		}
-
+		else if (!toProcess.empty()) {
+			stackMutex.lock();
+			stackProcess();
+			stackMutex.unlock();
+		}
 	}
 
 
