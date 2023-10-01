@@ -1,13 +1,12 @@
 #pragma once
 #include <vector>
-
+#include <iostream>
 
 class Pilha {
 private:
     std::vector<int> elementos;
 
 public:
-    Pilha();
 
     void empilhar(int elemento);
     void desempilhar();

@@ -1,9 +1,5 @@
 #include "pilha.hpp"
-#include <iostream>
 
-
-Pilha::Pilha() {
-}
 
 void Pilha::empilhar(int elemento) {
     elementos.push_back(elemento);
