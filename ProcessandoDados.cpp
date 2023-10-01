@@ -101,27 +101,29 @@ void ProcessandoDados::leituraNormal() {
 	std::chrono::steady_clock::time_point startTime;
 	std::chrono::steady_clock::time_point endTime;
 	//tempo para o vetor
-	startTime = std::chrono::high_resolution_clock::now();
+	startTime = std::chrono::steady_clock::now();
 	for (int i : vector) {
 		Leitura::lendoVetor(i, randomTimer());
 	}
-	endTime = std::chrono::high_resolution_clock::now();
+	endTime = std::chrono::steady_clock::now();
 	std::chrono::seconds vectorTime = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 	parciais->tempoVector = vectorTime.count();
+
 	//tempo para a lista simplesmente encadeada
-	startTime = std::chrono::high_resolution_clock::now();
+	startTime = std::chrono::steady_clock::now();
 	for (int i = 0; i < linkedList.size(); i++) {
 		Leitura::lendoVetor(linkedList.getValueAtPosition(i), randomTimer());
 	}
-	endTime = std::chrono::high_resolution_clock::now();
+	endTime = std::chrono::steady_clock::now();
 	std::chrono::seconds linkedTime = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 	parciais->tempoSimples = linkedTime.count();
+
 	//tempo para a lista duplamente encadeada
-	startTime = std::chrono::high_resolution_clock::now();
+	startTime = std::chrono::steady_clock::now();
 	for (int i = 0; i < doublyLinkedList.size(); i++) {
 		Leitura::lendoVetor(doublyLinkedList.getValueAtPosition(i), randomTimer());
 	}
-	endTime = std::chrono::high_resolution_clock::now();
+	endTime = std::chrono::steady_clock::now();
 	std::chrono::seconds doublyTime = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 	parciais->tempoDupla = doublyTime.count();
 }
@@ -131,7 +133,7 @@ void ProcessandoDados::multiTask() {
 
 	std::vector<std::thread> threads;
 
-	startTime = std::chrono::high_resolution_clock::now();
+	startTime = std::chrono::steady_clock::now();
 	for (int i = 0; i < 2; ++i) {
 		threads.emplace_back(&ProcessandoDados::processandoInfo, this);
 	}
@@ -140,7 +142,7 @@ void ProcessandoDados::multiTask() {
 		threads[i].join();
 	}
 
-	endTime = std::chrono::high_resolution_clock::now();
+	endTime = std::chrono::steady_clock::now();
 	std::chrono::seconds totalTime = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 	parciais->tempoParalelo = totalTime.count();
 }
@@ -176,7 +178,6 @@ void ProcessandoDados::processandoInfo() {
 }
 void ProcessandoDados::waitForCompletion() {
 	std::unique_lock<std::mutex> lock(listMutex);
-	// Espere até que todas as threads tenham concluído
 	condition_.wait(lock, [this] { return generalLinkedList.size() == 0 && toProcess.size() == 0; });
 }
 void ProcessandoDados::stackProcess() {
@@ -194,5 +195,7 @@ void ProcessandoDados::normalProcess(int value) {
 }
 
 void ProcessandoDados::resultados() {
-	Leitura::resultados(parciais);
+
+	Leitura::resultados(parciais->tempoVector, parciais->tempoSimples, parciais->tempoDupla, parciais->tempoParalelo);
+	
 }

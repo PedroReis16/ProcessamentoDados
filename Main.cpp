@@ -29,14 +29,14 @@ int main()
 		random4 = GeraValores::geraVetor(10000);
 	}
 	else if (confirm == "r" || confirm == "R") {
-		/*random1 = GeraValores::geraVetor(100);
+		random1 = GeraValores::geraVetor(100);
 		random2 = GeraValores::geraVetor(300);
 		random3 = GeraValores::geraVetor(500);
-		random4 = GeraValores::geraVetor(1000);*/
-		random1 = GeraValores::geraVetor(10);
+		random4 = GeraValores::geraVetor(1000);
+		/*random1 = GeraValores::geraVetor(10);
 		random2 = GeraValores::geraVetor(10);
 		random3 = GeraValores::geraVetor(10);
-		random4 = GeraValores::geraVetor(10);
+		random4 = GeraValores::geraVetor(10);*/
 	}
 	system("clear||cls");
 

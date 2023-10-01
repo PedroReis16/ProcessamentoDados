@@ -4,10 +4,10 @@
 class Cronometro
 {
 public:
-	int tempoVector;
-	int tempoSimples;
-	int tempoDupla;
-	int tempoParalelo;
+	double tempoVector;
+	double tempoSimples;
+	double tempoDupla;
+	double tempoParalelo;
 
 	Cronometro();
 };
