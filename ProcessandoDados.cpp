@@ -171,14 +171,14 @@ void ProcessandoDados::processandoInfo() {
 		}
 		
 		if (generalLinkedList.size() == 0 && toProcess.size() == 0) {
-			condition_.notify_all();
+			condition.notify_all();
 			break;
 		}
 	}
 }
 void ProcessandoDados::waitForCompletion() {
 	std::unique_lock<std::mutex> lock(listMutex);
-	condition_.wait(lock, [this] { return generalLinkedList.size() == 0 && toProcess.size() == 0; });
+	condition.wait(lock, [this] { return generalLinkedList.size() == 0 && toProcess.size() == 0; });
 }
 void ProcessandoDados::stackProcess() {
 	int current = toProcess.top();

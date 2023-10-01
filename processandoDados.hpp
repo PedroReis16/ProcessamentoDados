@@ -25,7 +25,7 @@ private:
 	void normalProcess(int value);
 	void waitForCompletion();
 	Cronometro* parciais = new Cronometro();
-	std::condition_variable condition_;
+	std::condition_variable condition;
 	std::mutex listMutex;
 
 public:
