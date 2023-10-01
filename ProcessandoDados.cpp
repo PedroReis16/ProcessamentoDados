@@ -148,14 +148,8 @@ void ProcessandoDados::processandoInfo() {
 
 	while (generalLinkedList.size() > 0 || toProcess.size() > 0)
 	{
-		if (generalLinkedList.size() == 0 && toProcess.size() == 0) {
-			condition_.notify_all();
-			break;
-		}
-		if (!toProcess.empty()) {
-			stackMutex.lock();
+		if (toProcess.size() > 0) {
 			stackProcess();
-			stackMutex.unlock();
 		}
 		else if (generalLinkedList.size() > 0) {
 
@@ -169,8 +163,14 @@ void ProcessandoDados::processandoInfo() {
 			}
 			else {
 				toProcess.push(value);
+
 				generalLinkedList.remove(value);
 			}
+		}
+		
+		if (generalLinkedList.size() == 0 && toProcess.size() == 0) {
+			condition_.notify_all();
+			break;
 		}
 	}
 }
