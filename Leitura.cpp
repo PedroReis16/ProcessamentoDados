@@ -16,3 +16,12 @@ void Leitura::lendoPilha(int value, int pause) {
 	std::this_thread::sleep_for(std::chrono::milliseconds(pause));
 	std::cout << "O pagamento de " << value << " foi processado com sucesso" << std::endl;
 }
+void Leitura::resultados(Cronometro* parciais) {
+	std::cout << "Tempo total de medições para cada tipo de processamento em segundos: " << std::endl;
+
+	std::cout << "Vetor: " << parciais->tempoVector << std::endl;
+	std::cout << "Simplesmente encadeado: " << parciais->tempoSimples << std::endl;
+	std::cout << "Duplamente encadeado: " << parciais->tempoDupla << std::endl;
+	std::cout << "Paralelo: " << parciais->tempoParalelo << std::endl;
+
+}

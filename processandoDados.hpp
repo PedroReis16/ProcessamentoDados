@@ -3,8 +3,8 @@
 #include "leitura.hpp"
 #include "linkedList.hpp"
 #include "doublyLinkedList.hpp"
-#include "threadPool.hpp"
 #include "stack.hpp"
+#include "cronometro.hpp"
 
 class ProcessandoDados
 {
@@ -23,8 +23,13 @@ private:
 	void processandoInfo();
 	void stackProcess();
 	void normalProcess(int value);
+	void waitForCompletion();
+	Cronometro* parciais = new Cronometro;
+	std::condition_variable condition_;
+	std::mutex listMutex;
 
 public:
+	void resultados();
 	void leituraNormal();
 	void multiTask();
 	void juntandoDados(std::vector<int>conjunto1, std::vector<int>conjunto2, std::vector<int>conjunto3, std::vector<int>conjunto4);
