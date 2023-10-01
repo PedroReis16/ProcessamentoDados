@@ -4,7 +4,7 @@
 #include "linkedList.hpp"
 #include "doublyLinkedList.hpp"
 #include "threadPool.hpp"
-#include <stack>
+#include "stack.hpp"
 
 class ProcessandoDados
 {
@@ -13,10 +13,11 @@ private:
 	int biggestValue;
 	std::vector<int> vector;
 	std::vector<int> generalList;
-	std::stack<int> toProcess;
+	Stack toProcess;
 	LinkedList linkedList;
 	LinkedList generalLinkedList;
 	DoublyLinkedList doublyLinkedList;
+	std::mutex stackMutex;
 	void mergeSort(std::vector<int>& vector, int left, int right);
 	void merge(std::vector<int>& vector, int left, int middle, int right);
 	void processandoInfo();

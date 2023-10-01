@@ -115,36 +115,37 @@ void ProcessandoDados::multiTask() {
 }
 void ProcessandoDados::processandoInfo() {
 	std::mutex listMutex;
-	std::mutex stackMutex;
+
 
 	while (generalList.size() > 0 || toProcess.size() > 0)
 	{
-		if (generalLinkedList.size() > 0) {
-
-			int value = generalLinkedList.getValueAtPosition(0);
-
-			if (((biggestValue / 3) * 2) <= value) {
-				normalProcess(value);
-			}
-			else {
-				toProcess.push(value);
-			}
-		}
-		else if (!toProcess.empty()) {
+		if (!toProcess.empty()) {
 			stackMutex.lock();
 			stackProcess();
 			stackMutex.unlock();
 		}
+		else if (generalLinkedList.size() > 0) {
+
+			int value = generalLinkedList.getValueAtPosition(0);
+
+			if (value <= (2 * (biggestValue / 3))) {
+				normalProcess(value);
+			}
+			else {
+				toProcess.push(value);
+				generalLinkedList.remove(value);
+			}
+		}
+
 	}
+
 
 }
 void ProcessandoDados::stackProcess() {
 	int current = toProcess.top();
-	generalLinkedList.remove(current);
 
 	Leitura::lendoPilha(current, randomTimer());
 	toProcess.pop();
-
 }
 void ProcessandoDados::normalProcess(int value) {
 	generalLinkedList.remove(value);

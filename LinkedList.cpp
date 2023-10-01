@@ -63,9 +63,9 @@ int LinkedList::indexOf(int value) {
 	return -1;
 }
 int LinkedList::getValueAtPosition(int value) {
+	std::lock_guard<std::mutex>lock(mutex);
 	Node* current = head;
 	int currentPosition = 0;
-
 	while (current)
 	{
 		if (currentPosition == value) {
