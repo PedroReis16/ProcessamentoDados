@@ -23,9 +23,11 @@ void LinkedList::addRange(std::vector<int> values) {
 	}
 }
 void LinkedList::remove(int value) {
+
 	if (head == nullptr) {
 		return;
 	}
+	std::lock_guard<std::mutex>lock(mutex);
 
 	if (head->value == value) {
 		Node* temp = head;
@@ -44,10 +46,12 @@ void LinkedList::remove(int value) {
 		current->next = current->next->next;
 		delete temp;
 	}
+
 }
 int LinkedList::indexOf(int value) {
 	Node* current = head;
 	int index = 0;
+	std::lock_guard<std::mutex>lock(mutex);
 
 	while (current) {
 		if (current->value == value) {

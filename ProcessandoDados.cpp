@@ -99,8 +99,56 @@ void ProcessandoDados::merge(std::vector<int>& vector, int left, int middle, int
 
 void ProcessandoDados::leituraNormal() {
 	for (int i : generalList) {
-		Leitura::lendoVetor(i,randomTimer());
+		Leitura::lendoVetor(i, randomTimer());
 	}
 }
+void ProcessandoDados::multiTask() {
+	std::thread threads[2];
 
+	for (int i = 0; i < 2; ++i) {
+		threads[i] = std::thread(&ProcessandoDados::processandoInfo, this);
+	}
+
+	for (int i = 0; i < 2; ++i) {
+		threads[i].join();
+	}
+}
+void ProcessandoDados::processandoInfo() {
+	std::mutex listMutex;
+	std::mutex stackMutex;
+
+	while (generalList.size() > 0 || toProcess.size() > 0)
+	{
+		if (!toProcess.empty()) {
+			stackMutex.lock();
+			stackProcess();
+			stackMutex.unlock();
+		}
+		else if (generalLinkedList.size() > 0) {
+			listMutex.lock();
+			int value = generalLinkedList.getValueAtPosition(0);
+
+			if (((biggestValue / 3) * 2) > value) {
+				toProcess.push(value);
+			}
+			normalProcess(value);
+			listMutex.unlock();
+		}
+
+	} 
+	
+
+}
+void ProcessandoDados::stackProcess() {
+	int current = toProcess.top();
+	generalLinkedList.remove(current);
+
+	Leitura::lendoPilha(current, randomTimer());
+	toProcess.pop();
+
+}
+void ProcessandoDados::normalProcess(int value) {
+	generalLinkedList.remove(value);
+	Leitura::lendoVetor(value, randomTimer());
+}
 

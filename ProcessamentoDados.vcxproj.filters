@@ -42,9 +42,6 @@
     <ClCompile Include="ThreadPool.cpp">
       <Filter>Arquivos de Origem\Modelos</Filter>
     </ClCompile>
-    <ClCompile Include="Pilha.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="Leitura.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
@@ -66,9 +63,6 @@
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="threadPool.hpp">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="pilha.hpp">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="leitura.hpp">

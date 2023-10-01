@@ -34,12 +34,12 @@ int main()
 		exit;
 	}
 
-	/*std::cout << std::endl;
+	std::cout << std::endl;
 	std::cout << "Esse foi o processamento de dados de forma sincrona, deseja realizar o mesmo processamento de forma paralela? (s/n)" << std::endl;
 	std::cin >> confirm;
 
 	if (confirm == "s" || confirm == "S") {
-		process.processandoDadosParalelo();
+		process.multiTask();
 	}
 	else {
 		exit;
@@ -47,14 +47,14 @@ int main()
 	
 	std::cout << std::endl;
 	std::cout << "Deseja continuar? (s/n)" << std::endl;
-	std::cin >> confirm;*/
+	std::cin >> confirm;
 
-	/*if (confirm == "s" || confirm == "S") {
-		process.processandoDadosParaleloPilha();
+	if (confirm == "s" || confirm == "S") {
+		process.multiTask();
 	}
 	else {
 		exit;
-	}*/
+	}
 
 	return 0;
 }

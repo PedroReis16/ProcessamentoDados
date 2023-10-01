@@ -1,10 +1,12 @@
 #pragma once
 #include "Node.hpp"
 #include <vector>
+#include <Mutex>
 
 class LinkedList {
 private:
 	Node* head;
+	std::mutex mutex;
 public:
 	LinkedList();
 
