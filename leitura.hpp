@@ -7,8 +7,8 @@
 class Leitura
 {
 public:
-	static void lendoVetor(int value,int pause);
+	static void lendoVetor(int value, int pause);
 	static void lendoPilha(int value, int pause);
-	static void resultados(double tempoVetor, double tempoSimples, double tempoDupla, double tempoParalelo);
+	static void resultados(double tempoVetor, double tempoSimples, double tempoDupla, double tempoParalelo, double tempoSemThread);
 };
 

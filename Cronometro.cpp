@@ -5,4 +5,5 @@ Cronometro::Cronometro() {
 	tempoSimples = 0;
 	tempoDupla = 0;
 	tempoParalelo = 0;
+	tempoSemThread = 0;
 }

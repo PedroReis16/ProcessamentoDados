@@ -98,8 +98,14 @@ void ProcessandoDados::merge(std::vector<int>& vector, int left, int middle, int
 #pragma endregion
 
 void ProcessandoDados::leituraNormal() {
+	std::chrono::steady_clock::time_point startTotalTime;
 	std::chrono::steady_clock::time_point startTime;
 	std::chrono::steady_clock::time_point endTime;
+	std::chrono::steady_clock::time_point endTotalTime;
+	
+	//Inicia um tempo geral
+	startTotalTime = std::chrono::steady_clock::now();
+
 	//tempo para o vetor
 	startTime = std::chrono::steady_clock::now();
 	for (int i : vector) {
@@ -126,6 +132,11 @@ void ProcessandoDados::leituraNormal() {
 	endTime = std::chrono::steady_clock::now();
 	std::chrono::seconds doublyTime = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
 	parciais->tempoDupla = doublyTime.count();
+
+	//Finaliza o contabilizador de processamento sem thread
+	endTotalTime = std::chrono::steady_clock::now();
+	std::chrono::seconds totalTime = std::chrono::duration_cast<std::chrono::seconds>(endTotalTime - startTotalTime);
+	parciais->tempoSemThread = totalTime.count();
 }
 void ProcessandoDados::multiTask() {
 	std::chrono::steady_clock::time_point startTime;
@@ -196,6 +207,6 @@ void ProcessandoDados::normalProcess(int value) {
 
 void ProcessandoDados::resultados() {
 
-	Leitura::resultados(parciais->tempoVector, parciais->tempoSimples, parciais->tempoDupla, parciais->tempoParalelo);
+	Leitura::resultados(parciais->tempoVector, parciais->tempoSimples, parciais->tempoDupla, parciais->tempoParalelo,parciais->tempoSemThread);
 	
 }

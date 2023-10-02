@@ -8,6 +8,7 @@ public:
 	double tempoSimples;
 	double tempoDupla;
 	double tempoParalelo;
+	double tempoSemThread;
 
 	Cronometro();
 };
